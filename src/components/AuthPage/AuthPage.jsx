@@ -1,11 +1,10 @@
-import LoginPage from "../LoginPage/LoginPage";
-import SignInPage from "../SignInPage/SignInPage";
+import { Outlet } from "react-router-dom";
 
 const AuthPage = () => {
     return (
         <>
         <h1>Conductor App</h1>
-        <LoginPage />
+        <Outlet />
         </>
     )
 }

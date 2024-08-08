@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const LoginPage = () => {
     return (
         <>
@@ -9,7 +11,7 @@ const LoginPage = () => {
             <input type="password" name="password" id="password" required />
             <button type="submit">Log In</button>
         </form>
-        <p>Didn't have acount? Create Account</p>
+        <p>Didn't have acount? <Link to="/auth/signin">Create Account</Link></p>
         </>
     )
 }

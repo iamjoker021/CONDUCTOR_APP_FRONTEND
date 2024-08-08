@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SignInPage = () => {
     return (
         <>
@@ -19,7 +21,7 @@ const SignInPage = () => {
             </select>
             <button type="submit">Log In</button>
         </form>
-        <p>Already have account? Log In</p>
+        <p>Already have account? <Link to="/auth">Log In</Link></p>
         </>
     )
 }
