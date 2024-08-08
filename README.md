@@ -6,3 +6,4 @@ Refer: [Conductor Backend API](https://github.com/iamjoker021/CONDUCTOR_APP_BACK
 Tasks:
 
 Next Task:
+Build a view for user to view page to select the bus-details
