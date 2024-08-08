@@ -1,7 +1,9 @@
+import PlaceTicketForm from "../PlaceTicketForm/PlaceTicketForm";
+
 const MainSection = () => {
     return (
       <main>
-        <p>Main Content Goes Here</p>
+        <PlaceTicketForm />
       </main>
     )
 }
