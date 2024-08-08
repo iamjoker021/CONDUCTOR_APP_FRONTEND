@@ -48,7 +48,7 @@ const PlaceTicketForm = () => {
           <label htmlFor="bus_id_3">bus_id_3, Fare: 300</label>
 
           <label htmlFor="noOfPassengers">No of Passengers: </label>
-          <input type="number" name="noOfPassengers" id="noOfPassengers" min="1" max="50" step="1" value={1} required />
+          <input type="number" name="noOfPassengers" id="noOfPassengers" min="1" max="50" step="1" defaultValue={1} required />
 
           <button type="submit">Place Ticket</button>
         </form>
