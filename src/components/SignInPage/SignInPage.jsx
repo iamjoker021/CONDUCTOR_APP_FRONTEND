@@ -19,6 +19,7 @@ const SignInPage = () => {
         e.preventDefault();
 
         setIsLoading(true);
+        setError(null);
         try {
             if (name && email && phoneno && password && confirmPassword && role) {
                 const SERVER_URL = 'http://localhost:3000/api';
@@ -43,6 +44,9 @@ const SignInPage = () => {
                 else {
                     navigate('/auth');
                 }
+            }
+            else {
+                setError('All required input fields must be filled');
             }
         }
         catch (error) {
