@@ -4,6 +4,12 @@ This is my personal project to build a Conductor App for easing payment solution
 Refer: [Conductor Backend API](https://github.com/iamjoker021/CONDUCTOR_APP_BACKEND)
 
 Tasks:
+Create PlaceTicketFormByBusID Component
+Create Login Component
+Create SignIn Component
+Set up and Authentication using JWT
+Create Ticket List view
+Add functioanlity to add ticket on request
 
 Next Task:
-Build a view for user to view page to select the bus-details
+Add Web Design
