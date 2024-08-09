@@ -1,6 +1,6 @@
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useLogout } from "../../hooks/useLogout";
-import Navbar from "../Navbar/Navbar";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogout } from "../hooks/useLogout";
+import Navbar from "./Navbar";
 
 const Header = () => {
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useSignin } from "../../hooks/useSignin";
+import { useSignin } from "../hooks/useSignin";
 
 const SignInPage = () => {
     const [name, setName] = useState('');

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useFetchBusStopDetails } from "../../hooks/useFetchBusStopDetails";
-import { usePlaceTicket } from "../../hooks/usePlaceTicket";
+import { useFetchBusStopDetails } from "../hooks/useFetchBusStopDetails";
+import { usePlaceTicket } from "../hooks/usePlaceTicket";
 
 const PlaceTicketBusId = () => {
     const [busId, setBusId] = useState('');

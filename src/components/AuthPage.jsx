@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../hooks/useAuthContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect } from "react";
 
 const AuthPage = () => {

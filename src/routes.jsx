@@ -1,10 +1,10 @@
-import App from './App.jsx'
-import AuthPage from './components/AuthPage/AuthPage.jsx'
-import LoginPage from './components/LoginPage/LoginPage.jsx';
-import SignInPage from './components/SignInPage/SignInPage.jsx';
-import PlaceTicketBusId from './components/PlaceTicketBusId/PlaceTicketBusId.jsx';
 import { redirect } from "react-router-dom";
-import TicketList from './components/TicketList/TicketList.jsx';
+import App from './App.jsx'
+import AuthPage from './components/AuthPage.jsx'
+import LoginPage from './components/LoginPage.jsx';
+import SignInPage from './components/SignInPage.jsx';
+import PlaceTicketBusId from './components/PlaceTicketBusId.jsx';
+import TicketList from './components/TicketList.jsx';
 
 export default [
     {

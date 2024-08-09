@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useFetchTicketList } from "../../hooks/useFetchTicketList";
+import { useFetchTicketList } from "../hooks/useFetchTicketList";
 
 const TicketList = () => {
     const [ticketList, setTicketList] = useState([]);
