@@ -4,6 +4,7 @@ import LoginPage from './components/LoginPage/LoginPage.jsx';
 import SignInPage from './components/SignInPage/SignInPage.jsx';
 import PlaceTicketBusId from './components/PlaceTicketBusId/PlaceTicketBusId.jsx';
 import { redirect } from "react-router-dom";
+import TicketList from './components/TicketList/TicketList.jsx';
 
 export default [
     {
@@ -17,6 +18,10 @@ export default [
         {
           path: 'place-ticket',
           element: <PlaceTicketBusId />
+        },
+        {
+          path: 'tickets',
+          element: <TicketList />
         }
       ]
     },
