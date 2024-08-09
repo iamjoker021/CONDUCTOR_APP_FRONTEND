@@ -31,7 +31,7 @@ const SignInPage = () => {
             <input type="tel" name="phoneno" id="phoneno" value={phoneno} onChange={e => setPhoneno(e.target.value)} required />
             <label htmlFor="password">Password: </label>
             <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} required />
-            <label htmlFor="confirmpassword">Password: </label>
+            <label htmlFor="confirmpassword">Confirm Password: </label>
             <input type="password" name="confirmpassword" id="confirmpassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
             <label htmlFor="role">Role: </label>
             <select name="role" id="role" value={role} onChange={(e) => setRole(e.target.value)} disabled>
