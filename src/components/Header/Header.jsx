@@ -1,7 +1,11 @@
+import { useAuthContext } from "../../hooks/useAuthContext";
 import { useLogout } from "../../hooks/useLogout";
 import Navbar from "../Navbar/Navbar";
 
 const Header = () => {
+
+    const { user } = useAuthContext();
+
     const { logout } = useLogout();
     const handleClick = () => {
       logout()
@@ -10,7 +14,7 @@ const Header = () => {
     return (
         <header className="padding">
             <div className="userInfo">
-                <div>Profile Photo</div>
+                <div>{user.username}</div>
                 <div className="logoutButton">
                     <button className="logout" type="button" onClick={handleClick}>Log Out</button>
                 </div>
