@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useSignin } from "../../hooks/useSignin";
 
 const SignInPage = () => {
     const [name, setName] = useState('');
@@ -10,51 +11,11 @@ const SignInPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [role, setRole] = useState('passenger');
 
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    const navigate = useNavigate();
+    const { signin, isLoading, error } = useSignin();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        setIsLoading(true);
-        setError(null);
-        try {
-            if (name && email && phoneno && password && confirmPassword && role) {
-                const SERVER_URL = 'http://localhost:3000/api';
-                const SEND_USER_REG = '/auth/register';
-                const response = await fetch(SERVER_URL+SEND_USER_REG, 
-                    { 
-                        method: 'POST', 
-                        headers: { 'Content-type': 'application/json' },
-                        body: JSON.stringify({
-                            name: name,
-                            email: email,
-                            phoneno: phoneno,
-                            password: password,
-                            confirm_password: confirmPassword,
-                            role: role,
-                        })
-                    })
-                if (!response.ok) {
-                    const data = await response.json();
-                    setError(data.msg);
-                }
-                else {
-                    navigate('/auth');
-                }
-            }
-            else {
-                setError('All required input fields must be filled');
-            }
-        }
-        catch (error) {
-            setError(error);
-        }
-        finally {
-            setIsLoading(false);
-        }
+        await signin(name,email,phoneno,password,confirmPassword,role);
     }
 
     return (
