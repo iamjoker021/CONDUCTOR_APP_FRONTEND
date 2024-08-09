@@ -1,12 +1,20 @@
+import { useLogout } from "../../hooks/useLogout";
 import Navbar from "../Navbar/Navbar";
 
 const Header = () => {
+    const { logout } = useLogout();
+    const handleClick = () => {
+      logout()
+    }
+
     return (
-        <header>
-            <ul>
-                <li><h1>Conductor App</h1></li>
-                <li>Profile Photo</li>
-            </ul>
+        <header className="padding">
+            <div className="userInfo">
+                <div>Profile Photo</div>
+                <div className="logoutButton">
+                    <button className="logout" type="button" onClick={handleClick}>Log Out</button>
+                </div>
+            </div>
             <Navbar />
         </header>
     )

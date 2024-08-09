@@ -10,12 +10,12 @@ const TicketList = () => {
     }, [])
 
     return (
-        <div className="tickets">
+        <div className="tickets container">
             {isLoading && <p>Fetching your tikcets</p>}
             {error && <p>error</p>}
             {ticketList.length > 0 &&
                 ticketList.map(ticket => 
-                    <div key={ticket.ticket_unique_identifier} className="ticket">
+                    <div key={ticket.ticket_unique_identifier} className="ticket card">
                         <p>Ticket ID: {ticket.ticket_unique_identifier}</p>
                         <p>Issue Time: {ticket.issue_time}</p>
                         <p>Expiry Time: {ticket.expiry_time}</p>

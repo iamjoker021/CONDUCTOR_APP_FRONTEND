@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="padding">
         <Outlet />
       </main>
       <Footer />

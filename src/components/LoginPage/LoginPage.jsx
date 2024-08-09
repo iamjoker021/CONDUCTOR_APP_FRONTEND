@@ -15,7 +15,8 @@ const LoginPage = () => {
 
     return (
         <>
-        <h2>Login Form</h2>
+        <div>
+        <h1>Login Form</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email: </label>
             <input 
@@ -40,6 +41,7 @@ const LoginPage = () => {
             {error !==null && <p>{error}</p>}
         </form>
         <p>Didn't have account? <Link to="/auth/signin">Create Account</Link></p>
+        </div>
         </>
     )
 }

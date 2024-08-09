@@ -11,12 +11,7 @@ const AuthPage = () => {
         }
     }, []);
 
-    return (
-        <>
-        <h1>Conductor App</h1>
-        <Outlet />
-        </>
-    )
+    return <Outlet />
 }
 
 export default AuthPage;

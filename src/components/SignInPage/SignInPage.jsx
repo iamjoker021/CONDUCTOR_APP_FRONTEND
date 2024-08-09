@@ -20,7 +20,8 @@ const SignInPage = () => {
 
     return (
         <>
-        <h2>SignIn Form</h2>
+        <div>
+        <h1>SignIn Form</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name: </label>
             <input type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} required />
@@ -41,6 +42,7 @@ const SignInPage = () => {
             {error !==null && <p>{error}</p>}
         </form>
         <p>Already have account? <Link to="/auth">Log In</Link></p>
+        </div>
         </>
     )
 }
