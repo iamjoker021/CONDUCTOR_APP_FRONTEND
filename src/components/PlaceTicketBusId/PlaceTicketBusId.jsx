@@ -1,32 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useFetchBusStopDetails } from "../../hooks/useFetchBusStopDetails";
+import { usePlaceTicket } from "../../hooks/usePlaceTicket";
 
 const PlaceTicketBusId = () => {
     const [busId, setBusId] = useState('');
-
     const [busInfo, setBusInfo] = useState(null);
+    const [noOfPassengers, setNoOfPassengers] = useState(1);
 
     const [stopList, setStopList] = useState([]);
     const [fromStop, setFromStop] = useState('');
     const [toStop, setToStop] = useState('');
 
-    const [noOfPassengers, setNoOfPassengers] = useState(1);
+    const { fetchStopsByBusID, error:busIdError } = useFetchBusStopDetails();
+    const { placeTicket, isLoading, error } = usePlaceTicket();
 
-    const fetchStopsByBusID = () => {
-        if (busId !== '' && !isNaN(+busId)) {
-            const SERVER_URL = 'http://localhost:3000/api';
-            const GET_BUS_URL = '/bus-route/bus/';
+    const handleClick = (e) => {
+        fetchStopsByBusID(busId)
+            .then(data => {
+                setBusInfo(data);
+                setStopList(data.stop_details);
+            })
+    }
 
-            fetch(SERVER_URL + GET_BUS_URL + busId)
-                .then(response => response.json())
-                .then(data => {
-                    const busInfo = data.busStopsDetails[0];
-                    setBusInfo(busInfo);
-                    if (busInfo.stop_details.length) {
-                        const stops = busInfo.stop_details.sort((from, to) => from.stop_order - to.stop_order);
-                        setStopList(stops);
-                    }
-                });
-        }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await placeTicket(fromStop, toStop, busId, noOfPassengers);
     }
 
     const GetStopList = () => {
@@ -43,22 +41,22 @@ const PlaceTicketBusId = () => {
         if (from && to && noOfPassengers > 0) {
             const distance = to.distance_from_start - from.distance_from_start;
             if (distance <= 0) {
-                return <p>Give valid source and destination</p>
+                return <p>Give valid source and destination, Destination should come after source</p>
             }
             const totalFare = busInfo.price * distance * noOfPassengers
             return totalFare > 0 ? 
                         <>
                         <p><em>Total Fare: <b>&#x20B9; {totalFare}</b></em></p> 
-                        <button type="submit">Place Ticket</button>
+                        <button type="submit" disabled={isLoading}>Place Ticket</button>
                         </>
                         : 
-                        <button type="submit">Place Ticket</button>;
+                        <button type="submit" disabled={isLoading}>Place Ticket</button>;
         }
         return <button type="submit" disabled>Place Ticket</button>;
     }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             {/* Check how to receive the Bus ID via QR scanner */}
             <label htmlFor="busId">Bus ID: </label>
             <input 
@@ -69,7 +67,8 @@ const PlaceTicketBusId = () => {
                 onChange={(e) => setBusId(e.target.value)} 
                 required 
             />
-            <button onClick={e => fetchStopsByBusID()} type="button">Get Stops</button>
+            <button onClick={handleClick} type="button">Get Stops</button>
+            {busIdError && <p>{busIdError} !!</p>}
 
             <select 
                 name="fromStop" 
@@ -110,6 +109,8 @@ const PlaceTicketBusId = () => {
             />
 
             <CalculateFare />
+            {isLoading && <p>Placing your ticket....</p>}
+            {error && <p>{error}</p>}
         </form>
     )
 }
