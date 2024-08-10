@@ -16,11 +16,16 @@ function App() {
 
   return (
     <>
-      <Header />
+    {user &&
+    <>
+    <Header />
       <main className="padding">
         <Outlet />
       </main>
-      <Footer />
+    <Footer />
+    </>
+    }
+    {!user && <p>Loading...</p>} 
     </>
   )
 }
