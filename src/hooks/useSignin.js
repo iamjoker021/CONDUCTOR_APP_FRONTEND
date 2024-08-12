@@ -17,17 +17,16 @@ export const useSignin = () => {
             const jsonBody = JSON.stringify({ name, email, phoneno, password, confirm_password, role });
             const response = await fetch(SERVER_URL+USER_REGISTRATION, { method: "POST", headers: { 'Content-type': 'application/json' }, body: jsonBody })
             const data = await response.json();
-            console.log('Sign In Log: ',data);
             
             if (!response.ok) {
-                setError(data.msg);
+                setError(data.error);
             }
             else {
                 navigate('/auth');
             }
         } 
         catch (error) {
-            setError(error);
+            setError(`Unexpectded error. Error: ${JSON.stringify(error)}`);
         }
         finally {
             setIsLoading(false);

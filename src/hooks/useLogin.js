@@ -20,10 +20,9 @@ export const useLogin = () => {
             const jsonBody = JSON.stringify({ email, password });
             const response = await fetch(SERVER_URL+USER_LOGIN, { method: "POST", headers: { 'Content-type': 'application/json' }, body: jsonBody })
             const data = await response.json();
-            console.log('Log In Log: ',data);
             
             if (!response.ok) {
-                setError(data.msg);
+                setError(data.error);
             }
             else {
                 localStorage.setItem('user', JSON.stringify(data));
