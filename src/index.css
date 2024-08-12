@@ -40,6 +40,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 
   .logout {
@@ -120,6 +122,10 @@
   }
   
   button:hover {
+    background: #f84848;
+  }
+
+  button:disabled {
     background: #555;
   }
   
@@ -158,27 +164,9 @@
   
   /* Responsive Design */
   @media (min-width: 768px) {
-    .container {
-      width: 80%;
-    }
-  
-    .card {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    form {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    form input, form select {
-      margin: 0.5rem;
-    }
-  
-    form input[type="submit"] {
-      margin-left: auto;
+    header > *, h1, p, form, .navbar {
+      max-width: 600px;
+      margin: auto;
     }
   }
   
