@@ -22,14 +22,13 @@ export const useFetchBusStopDetails = () => {
                 logout();
             }
             else if (!response.ok) {
-                setError(data.msg);
+                setError(data.error);
             }
             else {
                 return data['busStopsDetails'][0];
             }
         } 
         catch (error) {
-            console.log(error);
             setError(JSON.stringify(error));
         }
         finally {

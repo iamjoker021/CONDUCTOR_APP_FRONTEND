@@ -17,8 +17,10 @@ const PlaceTicketBusId = () => {
     const handleClick = (e) => {
         fetchStopsByBusID(busId)
             .then(data => {
-                setBusInfo(data);
-                setStopList(data.stop_details);
+                if (data) {
+                    setBusInfo(data);
+                    setStopList(data.stop_details);
+                }
             })
     }
 
