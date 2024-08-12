@@ -5,11 +5,13 @@ import LoginPage from './components/LoginPage.jsx';
 import SignInPage from './components/SignInPage.jsx';
 import PlaceTicketBusId from './components/PlaceTicketBusId.jsx';
 import TicketList from './components/TicketList.jsx';
+import Error from "./components/Error.jsx";
 
 export default [
     {
       path: "/",
       element: <App />,
+      errorElement: <Error />,
       children: [
         {
           index: true,
