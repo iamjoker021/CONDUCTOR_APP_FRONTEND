@@ -85,7 +85,7 @@
     padding: 0.2rem;
   }
 
-  .ticket {
+  .card {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
