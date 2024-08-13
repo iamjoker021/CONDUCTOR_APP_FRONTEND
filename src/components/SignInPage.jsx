@@ -20,7 +20,7 @@ const SignInPage = () => {
 
     return (
         <>
-        <div>
+        <div className="centerForm">
         <h1>SignIn Form</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name: </label>

@@ -15,7 +15,7 @@ const LoginPage = () => {
 
     return (
         <>
-        <div>
+        <div className="centerForm">
         <h1>Login Form</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email: </label>
