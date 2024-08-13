@@ -11,6 +11,7 @@ const TicketList = () => {
 
     return (
         <div className="tickets container">
+            <h2>Your tickets</h2>
             {isLoading && <p>Fetching your tikcets</p>}
             {error && <p>error</p>}
             {ticketList.length > 0 &&

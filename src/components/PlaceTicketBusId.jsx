@@ -59,6 +59,7 @@ const PlaceTicketBusId = () => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <h2>Place Your ticket below</h2>
             {/* Check how to receive the Bus ID via QR scanner */}
             <label htmlFor="busId">Bus ID: </label>
             <input 
