@@ -6,6 +6,7 @@ import SignInPage from './components/SignInPage.jsx';
 import PlaceTicketBusId from './components/PlaceTicketBusId.jsx';
 import TicketList from './components/TicketList.jsx';
 import Error from "./components/Error.jsx";
+import TicketPage from "./components/TicketPage.jsx";
 
 export default [
     {
@@ -24,6 +25,10 @@ export default [
         {
           path: 'tickets',
           element: <TicketList />
+        },
+        {
+          path: 'tickets/:ticketid',
+          element: <TicketPage />
         }
       ]
     },

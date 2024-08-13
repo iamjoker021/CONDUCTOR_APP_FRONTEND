@@ -23,8 +23,8 @@
     font-size: smaller;
   }
 
-  body > main {
-    flex: 1 0 0;
+  main {
+    flex: 1 1 0;
     align-items: start;
   }
 
@@ -90,7 +90,37 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
   }
+
+  .ticket-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .qrinfo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.qrimage img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.qrinfo th, .qrinfo td {
+    padding: 8px;
+    border: 1px solid #000;
+    text-align: left;
+}
+
+.qrinfo th {
+    background-color: #f4f4f4;
+}
 
   /*  Own Styles end */
 

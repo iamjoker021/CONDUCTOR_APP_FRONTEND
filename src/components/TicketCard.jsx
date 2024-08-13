@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const TicketCard = ({ticket}) => {
     return (
         <div key={ticket.ticket_unique_identifier} className="ticket card">
@@ -7,6 +9,7 @@ const TicketCard = ({ticket}) => {
             <div className="qrinfo">
                 <p>Issue Time: {new Date(ticket.issue_time).toLocaleString()}</p>
                 <p>Expiry Time: {new Date(ticket.expiry_time).toLocaleString()}</p>
+                <Link to={ticket.ticket_unique_identifier} state={ticket}>Click here More Info</Link>
             </div>
         </div>
     )
