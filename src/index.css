@@ -87,22 +87,26 @@
   /*  Own Styles end */
 
   /* Navbar */
-  a:link { 
+  .navbar a:link { 
     text-decoration: none; 
     color: #f4f4f4;
   } 
-  a:visited { 
+  .navbar a:visited { 
     text-decoration: none; 
     color: #f4f4f4;
   } 
-  a:hover { 
+  .navbar a:hover { 
     text-decoration: none; 
     color: #f4f4f4;
   } 
-  a:active { 
+  .navbar a:active { 
     text-decoration: none; 
     color: #f4f4f4;
   }
+  .navbar > .nav-item.active {
+    color: var(--backround-color-primary);
+  }
+  
 
   .navbar {
     display: flex;
@@ -125,6 +129,26 @@
         background-color: #f4f4f4;
         color: var(--backround-color-primary);
     }
+
+    /* Anchor Link */
+
+    a:link { 
+      text-decoration: none; 
+      color: var(--backround-color-primary);
+    } 
+    a:visited { 
+      text-decoration: none; 
+      color: var(--backround-color-primary);
+    } 
+    a:hover { 
+      text-decoration: none; 
+      color: var(--backround-color-primary);
+    } 
+    a:active { 
+      text-decoration: none; 
+      color: var(--backround-color-primary);
+    }
+    /* Anchor Link */
   
   /* Body Styling */
   body {
