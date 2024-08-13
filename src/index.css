@@ -197,6 +197,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 1rem 0;
     padding: 1rem;
+    border: 1px solid #000000;
   }
   
   /* Form Styling */
