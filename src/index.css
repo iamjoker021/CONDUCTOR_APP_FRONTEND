@@ -122,6 +122,7 @@
     background-color: #f4f4f4;
 }
 
+
   /*  Own Styles end */
 
   /* Navbar */
@@ -158,9 +159,11 @@
         text-align: center;
         background-color: var(--backround-color-primary);
         color: #f4f4f4;
-        border: none;
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .nav-item:nth-child(1) {
+      border-right: 1px solid #f4f4f4;
     }
 
     .nav-item.active {
