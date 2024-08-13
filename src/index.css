@@ -89,40 +89,41 @@
   /* Navbar */
   a:link { 
     text-decoration: none; 
-    color: var(--backround-color-primary);
+    color: #f4f4f4;
   } 
   a:visited { 
     text-decoration: none; 
-    color: var(--backround-color-primary);
+    color: #f4f4f4;
   } 
   a:hover { 
     text-decoration: none; 
-    color: var(--backround-color-primary);
+    color: #f4f4f4;
   } 
   a:active { 
     text-decoration: none; 
-    color: var(--backround-color-primary);
+    color: #f4f4f4;
   }
 
   .navbar {
     display: flex;
-    background-color: #f4f4f4;;
-    border: 1px solid #f4f4f4;;
+    background-color: var(--backround-color-primary);
+    border: 1px solid #f4f4f4;
     margin: 20px 0;
     }
 
     .nav-item {
         flex: 1;
         text-align: center;
-        background-color: #f4f4f4;
+        background-color: var(--backround-color-primary);
+        color: #f4f4f4;
         border: none;
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .nav-item.active {
-        background-color: #d32f2f;
-        color: #f4f4f4;
+        background-color: #f4f4f4;
+        color: var(--backround-color-primary);
     }
   
   /* Body Styling */
@@ -183,7 +184,7 @@
   form input, form select {
     padding: 0.7rem;
     margin: 0.5rem 0;
-    border: 1px solid #f4f4f4;
+    border: 1px solid #2e2c2c;
     border-radius: 5px;
   }
   
