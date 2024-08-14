@@ -129,6 +129,16 @@
   border-radius: 5px;
 }
 
+.ticket-status {
+  font-weight: bolder;
+}
+.ticket-status.expired {
+  color: red;
+}
+.ticket-status.valid {
+  color: green;
+}
+
 .alert {
   color: red;
 }
