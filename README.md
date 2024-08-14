@@ -10,6 +10,7 @@ Create SignIn Component
 Set up and Authentication using JWT
 Create Ticket List view
 Add functioanlity to add ticket on request
+Add Web Design
 
 Next Task:
-Add Web Design
+Add Timer and auto-log out if timer expired based on token

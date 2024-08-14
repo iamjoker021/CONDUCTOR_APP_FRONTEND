@@ -1,6 +1,7 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import Navbar from "./Navbar";
+import Timer from "./Timer";
 
 const Header = () => {
 
@@ -15,6 +16,7 @@ const Header = () => {
         <header className="padding">
             <div className="userInfo">
                 <div>{user.username}</div>
+                <Timer />
                 <div className="logoutButton">
                     <button className="logout" type="button" onClick={handleClick}>Log Out</button>
                 </div>
