@@ -18,6 +18,7 @@ const TicketList = () => {
             {ticketList.length > 0 && ticketList.map(ticket => 
                 <TicketCard key={ticket.ticket_unique_identifier} ticket={ticket} />)
             }
+            {(!isLoading && ticketList.length === 0) && <p className="card">No tikcets available</p>}
         </div>
     )
 
