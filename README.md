@@ -4,13 +4,15 @@ This is my personal project to build a Conductor App for easing payment solution
 Refer: [Conductor Backend API](https://github.com/iamjoker021/CONDUCTOR_APP_BACKEND)
 
 Tasks:
-Create PlaceTicketFormByBusID Component
-Create Login Component
-Create SignIn Component
-Set up and Authentication using JWT
-Create Ticket List view
-Add functioanlity to add ticket on request
-Add Web Design
+1. Create PlaceTicketFormByBusID Component
+2. Create Login Component
+3. Create SignIn Component
+4. Set up and Authentication using JWT
+5. Create Ticket List view
+6. Add functioanlity to add ticket on request
+7. Add Web Design
+8. Add Timer and auto-log out if timer expired based on token
 
 Next Task:
-Add Timer and auto-log out if timer expired based on token
+Check out PWA on React app
+Build Conductor Side application
