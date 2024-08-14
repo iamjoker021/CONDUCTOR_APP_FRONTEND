@@ -14,7 +14,8 @@ const PlaceTicketBusId = () => {
     const { fetchStopsByBusID, error:busIdError } = useFetchBusStopDetails();
     const { placeTicket, isLoading, error } = usePlaceTicket();
 
-    const handleClick = (e) => {
+    const handleBusIDSubmit = (e) => {
+        e.preventDefault();
         fetchStopsByBusID(busId)
             .then(data => {
                 if (data) {
@@ -58,9 +59,10 @@ const PlaceTicketBusId = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Place Your ticket below</h2>
-            {/* Check how to receive the Bus ID via QR scanner */}
+        <>
+        <h2>Place Your ticket below</h2>
+        {/* Check how to receive the Bus ID via QR scanner */}
+        <form onSubmit={handleBusIDSubmit}>
             <label htmlFor="busId">Bus ID: </label>
             <input 
                 type="number" 
@@ -71,9 +73,10 @@ const PlaceTicketBusId = () => {
                 placeholder="Give your Bus No and click Get Stops. Currently availble BusID: 1, 2, 3"
                 required 
             />
-            <button onClick={handleClick} type="button">Get Stops</button>
+            <button type="submit">Get Stops</button>
             {busIdError && <p>{busIdError} !!</p>}
-
+        </form>
+        <form onSubmit={handleSubmit}>
             <select 
                 name="fromStop" 
                 id="fromStop" 
@@ -116,6 +119,7 @@ const PlaceTicketBusId = () => {
             {isLoading && <p>Placing your ticket....</p>}
             {error && <p>{error}</p>}
         </form>
+        </>
     )
 }
 
