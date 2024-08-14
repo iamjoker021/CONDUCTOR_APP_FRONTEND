@@ -7,6 +7,9 @@ Refer: [Conductor Backend API](https://github.com/iamjoker021/CONDUCTOR_APP_BACK
 1. Backend: https://conductor-app-backend.onrender.com/api-docs/
 2. Frontend: https://conductor-app-frontend.vercel.app/
 
+## How To Use App:
+Please find this [Documentation](./HOWTO.md) to know how to use this app.
+
 Tasks:
 1. Create PlaceTicketFormByBusID Component
 2. Create Login Component
