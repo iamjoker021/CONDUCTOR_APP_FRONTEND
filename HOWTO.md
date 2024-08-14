@@ -10,6 +10,7 @@ Welcome to the Conductor App! This guide will help you navigate and use the app 
 - [Ticket Validation](#5-ticket-validation-under-development-in-progress)
 - [Feedback & Validation](#feedback--validation)
 - [POINT TO BE NOTED](#point-to-be-noted-)
+- [Artfact](#artifacts)
 
 ### 1. Access the App:
 Visit the [Conductor App](https://conductor-app-frontend.vercel.app) frontend hosted on Vercel. 
@@ -43,3 +44,17 @@ Feel free to share your experience and suggestions.
 Hence kindly wait for few minutes while you are create your account. It might take long since server is getting started
 - Considering cost, I am using SQLITE DB on Backend, hence every server restart create a fresh DB, so your account details and ticket details might not be available after server restart
 - **This is just a demo app which I launch to get Idea Validation**
+
+### Artifacts:
+
+- Login Page
+![Login Page](./artifacts/Login.png)
+
+- SignIn Page
+![SignIn Page](./artifacts/SignIn.png)
+
+- Place Ticket
+![Place Ticket Page](./artifacts/PlaceTicket.png)
+
+- View Ticket
+![View Ticket](./artifacts/ViewTicket.png)
