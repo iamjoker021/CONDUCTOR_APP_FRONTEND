@@ -70,7 +70,7 @@ const PlaceTicketBusId = () => {
                 id="busId" 
                 value={busId} 
                 onChange={(e) => setBusId(e.target.value)} 
-                placeholder="Give your Bus No and click Get Stops. Currently availble BusID: 1, 2, 3"
+                placeholder="Availble BusNo: 1, 2, 3. Give your BusNo and click Get Stops. "
                 required 
             />
             <button type="submit">Get Stops</button>
