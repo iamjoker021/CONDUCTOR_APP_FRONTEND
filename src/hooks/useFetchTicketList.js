@@ -13,7 +13,7 @@ export const useFetchTicketList = () => {
         setError(null);
 
         try {
-            const SERVER_URL = "http://localhost:3000";
+            const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
             let GET_TICKET = "/api/user/tickets";
             
             if (isValid) {

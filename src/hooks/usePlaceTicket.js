@@ -16,7 +16,7 @@ export const usePlaceTicket = () => {
         setError(null);
 
         try {
-            const SERVER_URL = "http://localhost:3000";
+            const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
             let PLACE_TICKET = "/api/user/pay-for-trip";
 
             const jsonBody = JSON.stringify({sourceId, destinationId, busId, noOfPassengers})

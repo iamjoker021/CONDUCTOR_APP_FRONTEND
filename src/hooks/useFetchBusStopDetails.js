@@ -13,7 +13,7 @@ export const useFetchBusStopDetails = () => {
         setError(null);
 
         try {
-            const SERVER_URL = "http://localhost:3000";
+            const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
             let GET_STOP_DETAILS = "/api/bus-route/bus/";
             const response = await fetch(SERVER_URL+GET_STOP_DETAILS+busId, {headers: { 'Authorization': `Bearer ${user.token}` }})
             const data = await response.json();

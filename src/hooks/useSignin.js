@@ -12,7 +12,7 @@ export const useSignin = () => {
         setError(null);
 
         try {
-            const SERVER_URL = "http://localhost:3000";
+            const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
             const USER_REGISTRATION = "/api/auth/register";
             const jsonBody = JSON.stringify({ name, email, phoneno, password, confirm_password, role });
             const response = await fetch(SERVER_URL+USER_REGISTRATION, { method: "POST", headers: { 'Content-type': 'application/json' }, body: jsonBody })
