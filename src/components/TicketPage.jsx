@@ -1,7 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import QRTicket from './QRTicket';
 
 const TicketPage = () => {
+    const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
+    const TICKET_URL = '/api/tickets/';
+    
     const location = useLocation();
     const ticket = location.state;
 
@@ -29,9 +33,7 @@ const TicketPage = () => {
 
     return (
         <div key={ticket_unique_identifier} className="ticket-page">
-            <div className="qrimage">
-                <img src={ticket_qr} alt="Ticket QR Code" />
-            </div>
+            <QRTicket url={SERVER_URL+TICKET_URL+ticket.ticket_unique_identifier} />
             <div className="qrinfo">
             <table>
                 <tbody>

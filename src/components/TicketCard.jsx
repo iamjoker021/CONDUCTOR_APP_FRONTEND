@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
+import QRTicket from "./QRTicket"
 
 const TicketCard = ({ticket}) => {
+    const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
+    const TICKET_URL = '/api/tickets/';
     return (
         <div key={ticket.ticket_unique_identifier} className="ticket card">
-            <div className="qrimage">
-                <img src={ticket.ticket_qr} alt="Ticket QR Code" />
-            </div>
+            <QRTicket url={SERVER_URL+TICKET_URL+ticket.ticket_unique_identifier} />
             <div className="qrinfo">
                 <p>Issue Time: {new Date(ticket.issue_time).toLocaleString()}</p>
                 <p>Expiry Time: {new Date(ticket.expiry_time).toLocaleString()}</p>
