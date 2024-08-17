@@ -1,10 +1,14 @@
 import QrReader from 'react-qr-scanner';
+import { useNavigate } from 'react-router-dom';
 
 const QRBusIdReader = () => {
-
+    const navigate = useNavigate();
     const handleScan = (data) => {
         if (data) {
-            console.log(data);
+            const busId = data.text;
+            if (busId && parseInt(busId)) {
+                navigate('place-ticket/bus/' + busIdUrl);
+            }
         }
     }
 
