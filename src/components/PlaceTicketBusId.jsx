@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetchBusStopDetails } from "../hooks/useFetchBusStopDetails";
 import { usePlaceTicket } from "../hooks/usePlaceTicket";
+import { Link, useParams } from "react-router-dom";
 
 const PlaceTicketBusId = () => {
     const [editBusId, setEditBusId] = useState(false);
@@ -9,6 +10,13 @@ const PlaceTicketBusId = () => {
     const [busInfo, setBusInfo] = useState(null);
     const [noOfPassengers, setNoOfPassengers] = useState(1);
 
+    const { busid: paramBusId } = useParams();
+    useEffect(() => {
+        if (paramBusId && parseInt(paramBusId)) {
+            setBusId(paramBusId);
+        }
+    }, []);
+    
     const [stopList, setStopList] = useState([]);
     const [fromStop, setFromStop] = useState('');
     const [toStop, setToStop] = useState('');
@@ -71,6 +79,10 @@ const PlaceTicketBusId = () => {
         <>
         <h2>Place Your ticket below</h2>
         {/* Check how to receive the Bus ID via QR scanner */}
+        <div>
+            <p><Link to="/bus/scan">Click the Scan Bus QR Code</Link></p>
+        </div>
+        <p>Or enter the Bus ID manually below</p>
         <form onSubmit={handleBusIDSubmit}>
             <label htmlFor="busId">Bus ID: </label>
             <input 

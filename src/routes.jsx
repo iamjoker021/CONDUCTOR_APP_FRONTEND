@@ -7,12 +7,13 @@ import PlaceTicketBusId from './components/PlaceTicketBusId.jsx';
 import TicketList from './components/TicketList.jsx';
 import Error from "./components/Error.jsx";
 import TicketPage from "./components/TicketPage.jsx";
+import QRBusIdReader from "./components/QRBusIdReader.jsx";
 
 export default [
     {
       path: "/",
       element: <App />,
-      errorElement: <Error />,
+      // errorElement: <Error />,
       children: [
         {
           index: true,
@@ -20,7 +21,17 @@ export default [
         },
         {
           path: 'place-ticket',
-          element: <PlaceTicketBusId />
+          element: <PlaceTicketBusId />,
+          children: [
+            {
+              path: 'bus/:busid',
+              element: <PlaceTicketBusId />
+            }
+          ]
+        },
+        {
+          path: 'bus/scan',
+          element: <QRBusIdReader />
         },
         {
           path: 'tickets',
