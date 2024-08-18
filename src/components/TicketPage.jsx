@@ -18,6 +18,7 @@ const TicketPage = () => {
         issue_time, 
         expiry_time, 
         trip_details, 
+        validated_time
     } = ticket;
 
     // Destructuring trip details
@@ -46,6 +47,14 @@ const TicketPage = () => {
                     <tr>
                         <th>Expiry Time</th>
                         <td>{new Date(expiry_time).toLocaleString()}</td>
+                    </tr>
+                    <tr>
+                        <th>Validated Time</th>
+                        <td>{new Date(validated_time).toLocaleString()}</td>
+                    </tr>
+                    <tr>
+                        <th>Validation Status</th>
+                        <td>Validated: {validated_time ? Math.round((new Date() - new Date(validated_time))/(60 * 1000)) + ' minutes ago': 'Not Yet'}</td>
                     </tr>
                     <tr>
                         <th>Bus ID</th>
