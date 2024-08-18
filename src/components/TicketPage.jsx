@@ -15,11 +15,9 @@ const TicketPage = () => {
 
     const { 
         ticket_unique_identifier, 
-        ticket_qr, 
         issue_time, 
         expiry_time, 
         trip_details, 
-        user_id 
     } = ticket;
 
     // Destructuring trip details

@@ -8,53 +8,92 @@ import TicketList from './components/TicketList.jsx';
 import Error from "./components/Error.jsx";
 import TicketPage from "./components/TicketPage.jsx";
 import QRBusIdReader from "./components/QRBusIdReader.jsx";
+import QRTicketReader from "./components/QRTicketReader.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
-export default [
-    {
-      path: "/",
-      element: <App />,
-      // errorElement: <Error />,
-      children: [
+const passengerRoutes = [
+  {
+    index: true,
+    loader: async () => redirect('place-ticket')
+  },
+  {
+    path: 'place-ticket',
+    element: <ProtectedRoute element={<PlaceTicketBusId />} allowedRoles={['passenger']} />,
+    children: [
+      {
+        path: ':busid',
+        element: <ProtectedRoute element={<PlaceTicketBusId />} allowedRoles={['passenger']} />,
+      },
+    ]
+  },
+  {
+    path: 'bus/scan',
+    element: <ProtectedRoute element={<QRBusIdReader />} allowedRoles={['passenger']} />,
+  },
+  {
+    path: 'tickets',
+    element: <ProtectedRoute element={<TicketList />} allowedRoles={['passenger']} />,
+  },
+  {
+    path: 'tickets/:ticketid',
+    element: <ProtectedRoute element={<TicketPage />} allowedRoles={['passenger']} />,
+  },
+];
+
+// Conductor Routes
+const conductorRoutes = [
+  {
+    index: true,
+    loader: async () => redirect('ticket/scan')
+  },
+  {
+    path: 'ticket/scan',
+    element: <ProtectedRoute element={<QRTicketReader />} allowedRoles={['conductor']} />,
+  },
+  {
+    path: 'tickets/:ticketid',
+    element: <ProtectedRoute element={<TicketPage />} allowedRoles={['conductor']} />,
+  },
+];
+
+// Auth Routes
+const authRoutes = [
+  {
+    path: "auth",
+    element: <AuthPage />,
+    children: [
         {
           index: true,
-          loader: async () => redirect('/place-ticket'),
+          loader: async () => redirect('login')
         },
         {
-          path: 'place-ticket',
-          element: <PlaceTicketBusId />,
-          children: [
-            {
-              path: 'bus/:busid',
-              element: <PlaceTicketBusId />
-            }
-          ]
-        },
-        {
-          path: 'bus/scan',
-          element: <QRBusIdReader />
-        },
-        {
-          path: 'tickets',
-          element: <TicketList />
-        },
-        {
-          path: 'tickets/:ticketid',
-          element: <TicketPage />
-        }
-      ]
-    },
-    {
-      path: "auth",
-      element: <AuthPage />,
-      children: [
-        {
-          index: true,
+          path: 'login',
           element: <LoginPage />
         },
         {
           path: 'signin',
           element: <SignInPage />
         }
-      ]
-    },
-]
+    ]
+  },
+];
+
+// Combine Routes
+export default [
+  {
+    path: "/",
+    element: <ProtectedRoute element={<App />} allowedRoles={['conductor', 'passenger']} />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: 'passenger',
+        children: passengerRoutes
+      },
+      {
+        path: 'conductor',
+        children: conductorRoutes
+      }
+    ]
+  },
+  ...authRoutes,
+];

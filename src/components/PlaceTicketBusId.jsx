@@ -80,7 +80,7 @@ const PlaceTicketBusId = () => {
         <h2>Place Your ticket below</h2>
         {/* Check how to receive the Bus ID via QR scanner */}
         <div>
-            <p><Link to="/bus/scan">Click the Scan Bus QR Code</Link></p>
+            <p><Link to="/passenger/bus/scan">Click the Scan Bus QR Code</Link></p>
         </div>
         <p>Or enter the Bus ID manually below</p>
         <form onSubmit={handleBusIDSubmit}>

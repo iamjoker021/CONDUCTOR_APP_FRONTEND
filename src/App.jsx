@@ -5,14 +5,19 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import { useEffect } from "react";
 
 function App() {
-
   const { user } = useAuthContext();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!user){
+    if (user) {
+      if (user.role === 'conductor') {
+        navigate('/conductor');
+      } else if (user.role === 'passenger') {
+        navigate('/passenger');
+      }
+    } else {
       navigate('/auth');
     }
-  }, []);
+  }, [user]);
 
   return (
     <>

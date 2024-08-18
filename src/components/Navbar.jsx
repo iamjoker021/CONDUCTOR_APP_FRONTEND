@@ -3,22 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
   let currentLink;
-  switch (location.pathname) {
-    case '/place-ticket':
-      currentLink = 'place';
-      break;
-    case '/tickets':
-      currentLink = 'view';
-      break;
-    default:
-      break;
+
+  if (location.pathname.includes('/place-ticket')){
+    currentLink = 'place';
+  }
+  else if (location.pathname.includes('/tickets')){
+    currentLink = 'view';
   }
 
   return (
-      <nav className="navbar">
-          <Link className={'nav-item place' + (currentLink === 'place' ? ' active' : '')} to="/place-ticket">Place Ticket</Link>
-          <Link className={'nav-item view' + (currentLink === 'view' ? ' active' : '')} to="/tickets">View Tickets</Link>
-      </nav>
+    <nav className="navbar">
+      <Link className={'nav-item place' + (currentLink === 'place' ? ' active' : '')} to={"/passenger/place-ticket"} >Place Ticket</Link>
+      <Link className={'nav-item view' + (currentLink === 'view' ? ' active' : '')} to={"/passenger/tickets"} >View Tickets</Link>
+    </nav>
   )
 }
 

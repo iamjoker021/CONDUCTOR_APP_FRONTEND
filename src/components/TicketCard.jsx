@@ -3,7 +3,7 @@ import QRTicket from "./QRTicket"
 
 const TicketCard = ({ticket}) => {
     const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
-    const TICKET_URL = '/api/tickets/';
+    const TICKET_URL = '/api/user/tickets/';
     return (
         <div key={ticket.ticket_unique_identifier} className="ticket card">
             <QRTicket url={SERVER_URL+TICKET_URL+ticket.ticket_unique_identifier} />

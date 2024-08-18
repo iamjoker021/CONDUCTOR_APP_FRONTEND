@@ -5,9 +5,10 @@ const QRBusIdReader = () => {
     const navigate = useNavigate();
     const handleScan = (data) => {
         if (data) {
-            const busId = data.text;
-            if (busId && parseInt(busId)) {
-                navigate('place-ticket/bus/' + busIdUrl);
+            console.log(data);
+            const busId = parseInt(data.text);
+            if (busId) {
+                navigate('/passenger/place-ticket/' + busId);
             }
         }
     }

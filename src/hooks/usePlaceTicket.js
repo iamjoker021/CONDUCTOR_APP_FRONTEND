@@ -38,7 +38,7 @@ export const usePlaceTicket = () => {
                 setError(data.msg);
             }
             else {
-                navigate('/tickets');
+                navigate('/passenger/tickets');
             }
         } 
         catch (error) {
