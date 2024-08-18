@@ -25,6 +25,10 @@ const QRBusIdReader = () => {
                 onError={handleError}
                 onScan={handleScan}
                 style={{ width: '100%' }}
+                constraints={{
+                    audio: false,
+                    video: { facingMode: "environment" }
+                  }} 
             />
         </div>
     )
