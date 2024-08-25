@@ -18,7 +18,9 @@ const TicketPage = () => {
         issue_time, 
         expiry_time, 
         trip_details, 
-        validated_time
+        validated_time,
+        payment_status,
+        order_id,
     } = ticket;
 
     // Destructuring trip details
@@ -27,7 +29,7 @@ const TicketPage = () => {
         source_stop_id, 
         destination_stop_id, 
         total_distance, 
-        price_per_km 
+        price_per_km
     } = trip_details;
 
     return (
@@ -75,6 +77,14 @@ const TicketPage = () => {
                     <tr>
                         <th>Price per Km</th>
                         <td>${price_per_km}</td>
+                    </tr>
+                    <tr>
+                        <th>Payement Status</th>
+                        <td>{payment_status}</td>
+                    </tr>
+                    <tr>
+                        <th>Order ID</th>
+                        <td>{order_id}</td>
                     </tr>
                     <tr>
                         <th>Total Price</th>
