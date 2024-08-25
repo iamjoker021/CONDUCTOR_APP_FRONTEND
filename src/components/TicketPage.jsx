@@ -12,6 +12,9 @@ const TicketPage = () => {
     if (!ticket) {
         return <div>No ticket details available.</div>;
     }
+    else if (ticket.error) {
+        return <div>{ticket.error}</div>
+    }
 
     const { 
         ticket_unique_identifier, 
