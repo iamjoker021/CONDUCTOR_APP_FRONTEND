@@ -21,20 +21,27 @@ export const useValidateTicket = () => {
             if (response.status === 401) {
                 logout();
             }
+            
             else if (!response.ok) {
                 if (response.status === 400) {
-                    const ticketId = url.split('/').pop();
-                    const ticket = data;
-                    ticket.error = data.error;
-                    console.log('error',response.status, data);
-                    navigate('/conductor/tickets/'+ticketId, { state: ticket });
+                    if (data.error === 'The ticket is already validated') {
+                        const ticketId = url.split('/').pop();
+                        const ticket = data.ticketDetails;
+                        navigate('/conductor/tickets/'+ticketId, { state: ticket });
+                    }
+                    else {
+                        const ticketId = url.split('/').pop() | 'ticket-id-error';
+                        const ticket = data;
+                        ticket.error = data.error;
+                        navigate('/conductor/tickets/'+ticketId, { state: ticket });
+                    }
                 }
                 setError(data.msg);
             }
             else {
                 const ticketId = url.split('/').pop();
                 const ticket = data.ticketDetails;
-                navigate('/conductor/tickets/'+ticketId, { state: {ticket} });
+                navigate('/conductor/tickets/'+ticketId, { state: ticket });
             }
         }
         catch (error) {

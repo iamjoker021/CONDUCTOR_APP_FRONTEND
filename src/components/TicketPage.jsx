@@ -4,7 +4,7 @@ import QRTicket from './QRTicket';
 
 const TicketPage = () => {
     const SERVER_URL = import.meta.env.VITE_BACKEND_SERVER_URL;
-    const TICKET_URL = '/api/tickets/';
+    const TICKET_URL = '/api/user/tickets/';
     
     const location = useLocation();
     const ticket = location.state;
