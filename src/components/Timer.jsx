@@ -14,7 +14,8 @@ const Timer = () => {
                 logout();
             }
             const decodedToken = jwtDecode(user.token);
-            const pendingTime = decodedToken.exp - Math.floor(Date.now()/1000);
+            const TIMER_MARGIN_ALLOWANCE = import.meta.env.VITE_TIMER_MARGIN_ALLOWANCE || 0;
+            const pendingTime = decodedToken.exp - Math.floor(Date.now()/1000) - TIMER_MARGIN_ALLOWANCE;
             if (pendingTime > 0) {
                 setPendingTime(pendingTime);
             }
