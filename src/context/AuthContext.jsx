@@ -17,10 +17,7 @@ export const AuthContextProvider = ({ children }) => {
     const user = localStorage.getItem('user') || null;
     const [state, dispatch] = useReducer(authReducer, { user: JSON.parse(user) });
 
-
-    console.log('AuthContext: ', state);
-
-    return (
+        return (
         <AuthContext.Provider value={{...state, dispatch}}>
             { children }
         </AuthContext.Provider>

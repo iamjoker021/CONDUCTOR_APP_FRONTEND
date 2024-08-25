@@ -31,7 +31,6 @@ export const useLogin = () => {
             }
         } 
         catch (error) {
-            console.log(error);
             setError(JSON.stringify(error));
         }
         finally {

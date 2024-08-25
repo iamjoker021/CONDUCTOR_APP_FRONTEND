@@ -33,7 +33,6 @@ export const useFetchTicketList = () => {
             }
         } 
         catch (error) {
-            console.log(error);
             setError(JSON.stringify(error));
         }
         finally {

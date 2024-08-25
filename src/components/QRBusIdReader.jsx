@@ -5,7 +5,6 @@ const QRBusIdReader = () => {
     const navigate = useNavigate();
     const handleScan = (data) => {
         if (data) {
-            console.log(data);
             const busId = parseInt(data.text);
             if (busId) {
                 navigate('/passenger/place-ticket/' + busId);
