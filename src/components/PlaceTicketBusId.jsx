@@ -22,7 +22,7 @@ const PlaceTicketBusId = () => {
     const [toStop, setToStop] = useState('');
 
     const { fetchStopsByBusID, error:busIdError } = useFetchBusStopDetails();
-    const { placeTicket, isLoading, error } = usePlaceTicket();
+    const { displayRazorpay, isLoading, error } = usePlaceTicket();
 
     const handleBusIDSubmit = (e) => {
         e.preventDefault();
@@ -39,13 +39,17 @@ const PlaceTicketBusId = () => {
         else {
             setEditBusId(false);
         }
-        
     }
 
-    const handleSubmit = async (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
-        await placeTicket(fromStop, toStop, busId, noOfPassengers);
+        await displayRazorpay(fromStop, toStop, busId, noOfPassengers);
     }
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     await placeTicket(fromStop, toStop, busId, noOfPassengers);
+    // }
 
     const GetStopList = () => {
         return stopList.map(stop => 
@@ -67,12 +71,12 @@ const PlaceTicketBusId = () => {
             return totalFare > 0 ? 
                         <>
                         <p><em>Total Fare: <b>&#x20B9; {totalFare}</b></em></p> 
-                        <button type="submit" disabled={isLoading}>Place Ticket</button>
+                        <button onClick={handleClick} disabled={isLoading}>Place Ticket</button>
                         </>
                         : 
-                        <button type="submit" disabled={isLoading}>Place Ticket</button>;
+                        <button onClick={handleClick} disabled={isLoading}>Place Ticket</button>;
         }
-        return <button type="submit" disabled>Place Ticket</button>;
+        return <button onClick={handleClick} disabled>Place Ticket</button>;
     }
 
     return (
@@ -98,7 +102,7 @@ const PlaceTicketBusId = () => {
             <button type="submit">{editBusId ? 'Edit' : 'Get Stops'}</button>
             {busIdError && <p>{busIdError} !!</p>}
         </form>
-        <form onSubmit={handleSubmit}>
+        <form>
             <select 
                 name="fromStop" 
                 id="fromStop" 
