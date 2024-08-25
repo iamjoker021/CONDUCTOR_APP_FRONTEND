@@ -27,12 +27,14 @@ export const useValidateTicket = () => {
                     if (data.error === 'The ticket is already validated') {
                         const ticketId = url.split('/').pop();
                         const ticket = data.ticketDetails;
+                        ticket.responseStatus = response.status;
                         navigate('/conductor/tickets/'+ticketId, { state: ticket });
                     }
                     else {
                         const ticketId = url.split('/').pop() | 'ticket-id-error';
                         const ticket = data;
                         ticket.error = data.error;
+                        ticket.responseStatus = response.status;
                         navigate('/conductor/tickets/'+ticketId, { state: ticket });
                     }
                 }
@@ -41,6 +43,7 @@ export const useValidateTicket = () => {
             else {
                 const ticketId = url.split('/').pop();
                 const ticket = data.ticketDetails;
+                ticket.responseStatus = response.status;
                 navigate('/conductor/tickets/'+ticketId, { state: ticket });
             }
         }

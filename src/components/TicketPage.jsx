@@ -24,6 +24,7 @@ const TicketPage = () => {
         validated_time,
         payment_status,
         order_id,
+        responseStatus,
     } = ticket;
 
     // Destructuring trip details
@@ -56,6 +57,10 @@ const TicketPage = () => {
                     <tr>
                         <th>Validated Time</th>
                         <td>{new Date(validated_time).toLocaleString()}</td>
+                    </tr>
+                    <tr>
+                        <th>Response Status</th>
+                        <td>{responseStatus}</td>
                     </tr>
                     <tr>
                         <th>Validation Status</th>
